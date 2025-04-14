@@ -40,9 +40,16 @@
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage{fontspec}
 
+% Add a basepath option for the package
+\newcommand{\basepath}{.} % Default base path is current directory
+\DeclareOptionBeamer{basepath}[true]{%
+  \renewcommand{\basepath}{#1}
+}
+\ProcessOptionsBeamer
+
 %default
 \setsansfont{Karla}[
-	Path=./fonts/,
+	Path=\basepath/fonts/,
 	Extension = .ttf,
 	UprightFont=*-Regular,
   BoldFont=*-Bold,
@@ -53,7 +60,7 @@
 % specifying the font options
 \DeclareOptionBeamer{karlafont}[true]{%
 	\setsansfont{Karla}[
-	Path=./fonts/,
+	Path=\basepath/fonts/,
 	Extension = .ttf,
 	UprightFont=*-Regular,
   BoldFont=*-Bold,
@@ -93,11 +100,11 @@
 % “\logopath” specifies the path to the UPB logo used. There is a German and an
 % English version. Which one is used can be specified via the options
 % “logogerman”, “logoenglish” when calling \usetheme[<options>]{upb2024}.
-\newcommand{\logopath}{abb_theme/UPB_Logo_DE_vierfarbig_RGB.jpg}
+\newcommand{\logopath}{\basepath/abb_theme/UPB_Logo_DE_vierfarbig_RGB.jpg}
 
 % specifying the options
-\DeclareOptionBeamer{logogerman}[true]{\renewcommand{\logopath}{abb_theme/UPB_Logo_DE_vierfarbig_RGB.jpg}}
-\DeclareOptionBeamer{logoenglish}[true]{\renewcommand{\logopath}{abb_theme/UPB_Logo_ENG_coloured_RGB.jpg}}
+\DeclareOptionBeamer{logogerman}[true]{\renewcommand{\logopath}{\basepath/abb_theme/UPB_Logo_DE_vierfarbig_RGB.jpg}}
+\DeclareOptionBeamer{logoenglish}[true]{\renewcommand{\logopath}{\basepath/abb_theme/UPB_Logo_ENG_coloured_RGB.jpg}}
 \ProcessOptionsBeamer
 
 % With the “secondlogo” option, an additional logo can be integrated on the
@@ -106,7 +113,7 @@
 % also use the command “\renewcommand{\secondlogoheight}{<yourheight>} to
 % optionally set the height of the second logo. By default, this is 1 cm, which
 % corresponds exactly to the height of the UPB logo.
-\newcommand{\secondlogopath}{abb_theme/secondlogo.png}
+\newcommand{\secondlogopath}{\basepath abb_theme/secondlogo.png}
 \newcommand{\secondlogoheight}{1cm}
 
 % The condition is used for internal management of whether a second logo is used
@@ -203,7 +210,7 @@
 				at (\the\paperwidth,\the\paperheight)
 				{%
 					\includegraphics[height=.96\paperheight]{%
-						abb_theme/trianglesTitel
+						\basepath/abb_theme/trianglesTitel
 					}
 				};
 
@@ -224,7 +231,7 @@
 				at (0,0)
 				{%
 					\includegraphics[width=\paperwidth]{%
-						abb_theme/trianglesSection
+					\basepath/abb_theme/trianglesSection
 					}
 				};
 
@@ -272,7 +279,7 @@
 				at (\the\paperwidth,\the\paperheight)
 				{%
 					\includegraphics[height=.96\paperheight]{%
-						abb_theme/trianglesTitel.png
+						\basepath/abb_theme/trianglesTitel.png
 					}
 				};
 
@@ -283,7 +290,7 @@
 				at (\the\paperwidth,0)
 				{%
 					\includegraphics[width=\paperwidth]{%
-						abb_theme/trianglesOutline
+					\basepath/abb_theme/trianglesOutline
 					}
 				};
 
@@ -302,7 +309,7 @@
 				at (\the\paperwidth,\the\paperheight)
 				{%
 					\includegraphics[height=.97\paperheight]{%
-						abb_theme/trianglesContent
+					\basepath/abb_theme/trianglesContent
 					}
 				};
 		
